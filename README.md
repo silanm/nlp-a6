@@ -242,12 +242,12 @@
 
 ## Analysis and Discussion
 
-### Provide a list of the retriever and generator models you have utilized.
+### List of the retriever and generator models I have utilized
 Initially, I used **`fastchat-t5-3b-v1.0`** as my generator, but switching to **`GPT-4o`** via API significantly enhanced the response quality with more context-aware outputs.
 
 On the retriever side, I started with **`hkunlp/instructor-base`** for embeddings. Upgrading to **`hkunlp/instructor-large`** greatly improved the precision of document retrieval, resulting in more relevant context for the generated responses.
 
-### Analysis of Potential Issues with Unrelated Information:
+### Potential Issues with Unrelated Information
 The quality of both retrieval and context matters for getting good answers. If the embedding model or vector store does not match the question well, the retriever might bring back documents that are not closely related, which can confuse the generator. Using **`hkunlp/instructor-large`** gives more detailed embeddings, so it picks the right documents that match the question better.
 
 On the generation side, **`GPT-4o`** is excellent at understanding the given context and following clear instructions. This reduces the chance of adding extra, unrelated details. I also use a clear prompt: “You are a helpful personal-information assistant. Provide gentle, informative, and respectful answers based on available data. Current year is 2025.” Including the current year helps in making accurate calculations, like determining age.
