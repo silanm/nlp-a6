@@ -1,7 +1,7 @@
 # Let's Talk to Myself
 
 ## Streamlit
-<img src="images/demo.png" alt="Demo" style="width:50%;" />
+<img src="images/demo.png" alt="Demo" style="width:100%;" />
 
 
 ## Implementation
@@ -239,7 +239,6 @@
 </details>
 
 
-<br />
 
 ## Analysis and Discussion
 
