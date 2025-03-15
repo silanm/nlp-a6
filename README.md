@@ -8,19 +8,19 @@ This project creates a conversational assistant that answers questions based on 
 ## Implementation
 The core components and workflow are as follows:
 
-1. Environment Setup & Dependencies
+**1. Environment Setup & Dependencies**
 
     The project uses Python along with key libraries such as LangChain, Transformers, FAISS, and Torch. Environment variable i.e., OPENAI_API_KEY is configured at startup to enable access to external services like **`GPT-4o`**.
 
-2. Generator Model
+**2. Generator Model**
 
     Initially, a local model (**`fastchat-t5-3b-v1.0`**) was used for text generation. However, the implementation has been upgraded to utilize **`GPT-4o`** through the OpenAI API. With its advanced language understanding, GPT-4o produces more nuanced, context-aware, and accurate responses.
 
-3. Retriever & Embedding Model
+**3. Retriever & Embedding Model**
 
     To provide relevant context for each query, a FAISS vector store is used to hold document embeddings. The embeddings are initially generated using the **`hkunlp/instructor-base`** model and later improved by switching to the more robust **`hkunlp/instructor-large model`**. This upgrade enhances the retriever’s ability to find semantically relevant documents, ensuring the generator is provided with high-quality context.
 
-4. Conversational Retrieval Chain
+**4. Conversational Retrieval Chain**
 
     The system leverages LangChain’s Conversational Retrieval Chain to integrate retrieval and generation. The chain:
     - Uses a question generator to rephrase queries if needed.
@@ -28,13 +28,13 @@ The core components and workflow are as follows:
     - Feeds both the question and the retrieved context into the **`GPT-4o`** generator using a carefully designed prompt.
     - Stores recent conversation history in a memory buffer to provide continuity across interactions.
 
-5. Prompt Template & Post-Processing
+**5. Prompt Template & Post-Processing**
 
     The prompt template is designed to instruct the assistant as a personal-information helper, ensuring answers are gentle, respectful, and based solely on available data. It also includes context like the current year (2025) to ensure accurate calculations e.g., age.
     
     After generation, output is cleaned (removing padding and extra whitespace) and non-serializable metadata e.g., from tokenizer objects in the source documents is filtered out, so the final results can be easily output in JSON format.
 
-6. User Interface & Execution
+**6. User Interface & Execution**
 
     The project includes interface scripts (such as chatbot.py and a Streamlit app in streamlit_app.py) to allow users to interact with the system.
 
