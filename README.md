@@ -1,11 +1,41 @@
 # Let's Talk to Myself
+This project creates a conversational assistant that answers questions based on a combination of retrieved documents and generative responses. 
 
 ## Streamlit
 <img src="images/demo.png" alt="Demo" style="width:100%;" />
 
 
 ## Implementation
-...
+The core components and workflow are as follows:
+
+1. Environment Setup & Dependencies
+
+The project uses Python along with key libraries such as LangChain, Transformers, FAISS, and Torch. Environment variable i.e., OPENAI_API_KEY is configured at startup to enable access to external services like **`GPT-4o`**.
+
+2. Generator Model
+
+Initially, a local model (**`fastchat-t5-3b-v1.0`**) was used for text generation. However, the implementation has been upgraded to utilize **`GPT-4o`** through the OpenAI API. With its advanced language understanding, GPT-4o produces more nuanced, context-aware, and accurate responses.
+
+3. Retriever & Embedding Model
+
+To provide relevant context for each query, a FAISS vector store is used to hold document embeddings. The embeddings are initially generated using the **`hkunlp/instructor-base`** model and later improved by switching to the more robust **`hkunlp/instructor-large model`**. This upgrade enhances the retriever’s ability to find semantically relevant documents, ensuring the generator is provided with high-quality context.
+
+4. Conversational Retrieval Chain
+
+The system leverages LangChain’s Conversational Retrieval Chain to integrate retrieval and generation. The chain:
+- Uses a question generator to rephrase queries if needed.
+- Retrieves the most relevant documents from the FAISS vector store.
+- Feeds both the question and the retrieved context into the **`GPT-4o`** generator using a carefully designed prompt.
+- Stores recent conversation history in a memory buffer to provide continuity across interactions.
+
+5. Prompt Template & Post-Processing
+
+The prompt template is designed to instruct the assistant as a personal-information helper, ensuring answers are gentle, respectful, and based solely on available data. It also includes context like the current year (2025) to ensure accurate calculations e.g., age.
+After generation, output is cleaned (removing padding and extra whitespace) and non-serializable metadata e.g., from tokenizer objects in the source documents is filtered out, so the final results can be easily output in JSON format.
+
+6. User Interface & Execution
+
+The project includes interface scripts (such as chatbot.py and a Streamlit app in streamlit_app.py) to allow users to interact with the system.
 
 ## Sample Questions
 
@@ -253,3 +283,8 @@ The quality of both retrieval and context matters for getting good answers. If t
 On the generation side, **`GPT-4o`** is excellent at understanding the given context and following clear instructions. This reduces the chance of adding extra, unrelated details. I also use a clear prompt: “You are a helpful personal-information assistant. Provide gentle, informative, and respectful answers based on available data. Current year is 2025.” Including the current year helps in making accurate calculations, like determining age.
 
 Together, using **`hkunlp/instructor-large`** and **`GPT-4o`**, along with a specific prompt, helps keep the answers focused and relevant.
+
+# Acknowledgements
+
+* Professor Chaklam Silpasuwanchai (Asian Institute of Technology)
+* Todsavad Tangtortan (Asian Institute of Technology)
