@@ -22,11 +22,13 @@ The core components and workflow are as follows:
 
 4. Conversational Retrieval Chain
 
-    The system leverages LangChain’s Conversational Retrieval Chain to integrate retrieval and generation. The chain:
-    - Uses a question generator to rephrase queries if needed.
-    - Retrieves the most relevant documents from the FAISS vector store.
-    - Feeds both the question and the retrieved context into the **`GPT-4o`** generator using a carefully designed prompt.
-    - Stores recent conversation history in a memory buffer to provide continuity across interactions.
+    The system leverages LangChain’s Conversational Retrieval Chain to integrate retrieval and generation. 
+    
+    The chain:
+    - Uses a question generator to rephrase queries if needed
+    - Retrieves the most relevant documents from the FAISS vector store
+    - Feeds both the question and the retrieved context into the **`GPT-4o`** generator using a carefully designed prompt
+    - Stores recent conversation history in a memory buffer to provide continuity across interactions
 
 5. Prompt Template & Post-Processing
 
