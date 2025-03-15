@@ -1,5 +1,5 @@
 # Let's Talk to Myself
-This project creates a conversational assistant that answers questions based on a combination of retrieved documents (i.e., my CV and AIT Application Form in PDF format) and generative responses. 
+This project creates a conversational assistant that answers questions based on a combination of retrieved documents (i.e., my CV and AIT Application Form) and generative responses. 
 
 ## Chatbot in Action!
 <img src="images/demo.png" alt="Demo" style="width:100%;" />
