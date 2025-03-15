@@ -44,7 +44,7 @@ The core components and workflow are as follows:
 
 <details>
   <summary>
-    Expand to reveal the 10 pairs of question-answer in JSON format
+    Expand to reveal the 10 question–answer pairs in JSON format
   </summary>
 
 ```json
