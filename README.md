@@ -1,5 +1,5 @@
 # Let's Talk to Myself
-This project creates a conversational assistant that answers questions based on a combination of retrieved documents and generative responses. 
+This project creates a conversational assistant that answers questions based on a combination of retrieved documents (i.e., my CV and AIT Application Form in PDF format) and generative responses. 
 
 ## Chatbot in Action!
 <img src="images/demo.png" alt="Demo" style="width:100%;" />
@@ -18,7 +18,7 @@ The core components and workflow are as follows:
 
 3. Retriever & Embedding Model
 
-    To provide relevant context from my two documents i.e., CV and AIT Application Form for each query, a FAISS vector store is used to hold document embeddings. The embeddings are initially generated using the **`hkunlp/instructor-base`** model and later improved by switching to the more robust **`hkunlp/instructor-large model`**. This upgrade enhances the retriever’s ability to find semantically relevant documents, ensuring the generator is provided with high-quality context.
+    To provide relevant context from documents for each query, a FAISS vector store is used to hold document embeddings. The embeddings are initially generated using the **`hkunlp/instructor-base`** model and later improved by switching to the more robust **`hkunlp/instructor-large model`**. This upgrade enhances the retriever’s ability to find semantically relevant documents, ensuring the generator is provided with high-quality context.
 
 4. Conversational Retrieval Chain
 
