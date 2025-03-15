@@ -10,7 +10,7 @@ The core components and workflow are as follows:
 
 1. Environment Setup & Dependencies
 
-    The project uses Python along with key libraries such as LangChain, Transformers, FAISS, and Torch. Environment variable i.e., OPENAI_API_KEY is configured at startup to enable access to external services like **`GPT-4o`**.
+    The project uses Python along with key libraries such as LangChain, Transformers, FAISS, and Torch. Environment variable i.e., `OPENAI_API_KEY` is configured at startup to enable access to external services like **`GPT-4o`**.
 
 2. Generator Model
 
