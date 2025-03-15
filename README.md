@@ -240,7 +240,7 @@
 
 
 
-## Analysis and Discussion
+## Discussion
 
 ### List of the retriever and generator models I have utilized
 Initially, I used **`fastchat-t5-3b-v1.0`** as my generator, but switching to **`GPT-4o`** via API significantly enhanced the response quality with more context-aware outputs.
