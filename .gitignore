@@ -170,11 +170,12 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-.gradio
-offload/
-models/
-pdf/
-/archived
-/vector-store
 .DS_Store
-A6.pdf
+.gradio
+
+archived/
+docs/
+models/
+offload/
+pdf/
+vector-store/
